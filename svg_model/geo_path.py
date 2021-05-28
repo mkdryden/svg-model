@@ -14,8 +14,8 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+
 from .loop import Loop
 
 
@@ -71,8 +71,8 @@ class Path(object):
 
     def get_bounding_box(self):
         from itertools import chain
-        x_vals = list(chain(*[zip(*loop.verts)[0] for loop in self.loops]))
-        y_vals = list(chain(*[zip(*loop.verts)[1] for loop in self.loops]))
+        x_vals = list(chain(*[list(zip(*loop.verts))[0] for loop in self.loops]))
+        y_vals = list(chain(*[list(zip(*loop.verts))[1] for loop in self.loops]))
         min_x, min_y = min(x_vals), min(y_vals)
         max_x, max_y = max(x_vals), max(y_vals)
         return (min_x, min_y, max_x - min_x, max_y - min_y)

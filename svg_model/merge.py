@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+
 from lxml import etree
-import cStringIO as StringIO
+import io as StringIO
 import re
 
 import svgwrite

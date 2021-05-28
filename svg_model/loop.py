@@ -17,7 +17,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #from pymunk import moment_for_poly, Poly
 
 
-from __future__ import unicode_literals
+
 from six.moves import range
 class Loop(object):
 

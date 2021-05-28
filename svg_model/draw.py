@@ -1,7 +1,7 @@
 # coding: utf-8
-from __future__ import absolute_import
-from __future__ import unicode_literals
-import cStringIO as StringIO
+
+
+import io as StringIO
 
 import svgwrite
 from svgwrite.path import Path as Path_

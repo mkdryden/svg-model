@@ -1,8 +1,8 @@
 # coding: utf-8
 # Copyright 2015
 # Jerry Zhou <jerryzhou@hotmail.ca> and Christian Fobel <christian@fobel.net>
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+
 import re
 import warnings
 

@@ -32,7 +32,7 @@ if __name__ == '__main__':
         coords = translate([event.get_coords()], -width / 2., -height / 2.)[0]
         shape = body_group.space.point_query_first(coords)
         if shape:
-            print body_group.get_name(shape.body)
+            print(body_group.get_name(shape.body))
 
 
     window = gtk.Window()
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     def draw_path(context, p):
         context.save()
-        print 'draw_path color', [v / 255. for v in p.color]
+        print('draw_path color', [v / 255. for v in p.color])
         context.set_source_rgb(*[v / 255. for v in p.color])
         for loop in p.loops:
             context.move_to(*loop.verts[0])
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         x, y, width, height = path_group.get_bounding_box()
         cr.save()
         cr.translate(width / 2., height / 2.)
-        for p in body_group.paths.values():
+        for p in list(body_group.paths.values()):
             draw_path(cr, p)
         cr.restore()
 

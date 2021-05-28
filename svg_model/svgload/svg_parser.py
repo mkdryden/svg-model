@@ -14,8 +14,8 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+
 import warnings
 from collections import OrderedDict
 
@@ -64,8 +64,8 @@ class Svg(object):
 
     def get_bounding_box(self):
         points = list(self.all_verts())
-        x_vals = zip(*points)[0]
-        y_vals = zip(*points)[1]
+        x_vals = list(zip(*points))[0]
+        y_vals = list(zip(*points))[1]
         min_x, min_y = min(x_vals), min(y_vals)
         max_x, max_y = max(x_vals), max(y_vals)
         return Loop([(min_x, min_y), (min_x, max_y), (max_x, max_y),
@@ -169,6 +169,6 @@ class SvgParser(object):
 
         if svg.paths:
             x, y = svg.get_boundary().get_center()
-            for svg_path in svg.paths.values():
+            for svg_path in list(svg.paths.values()):
                 svg_path.offset(-x, -y)
         return svg
